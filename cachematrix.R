@@ -56,3 +56,41 @@ cacheSolve <- function(x, ...) {
         ## Return the inverse
         ninv
 }
+
+## Sample tests included:
+
+## > sampleMatrix <- rbind(c(1, -1/4), c(-1/4, 1))  
+## > sampleMatrix
+##       [,1]  [,2]
+## [1,]  1.00 -0.25
+## [2,] -0.25  1.00
+## > resultMatrix <- makeCacheMatrix(sampleMatrix)
+## > resultMatrix$get()
+##       [,1]  [,2]
+## [1,]  1.00 -0.25
+## [2,] -0.25  1.00
+## > resultMatrix$getinv()
+## NULL
+## > sampleSecondMatrix <- rbind(c(1, -1/2), c(-1/2, 1))
+## > sampleSecondMatrix
+##      [,1] [,2]
+## [1,]  1.0 -0.5
+## [2,] -0.5  1.0
+## > resultMatrix$set(sampleSecondMatrix)
+## > resultMatrix$get()
+##      [,1] [,2]
+## [1,]  1.0 -0.5
+## [2,] -0.5  1.0
+## > solve(sampleSecondMatrix)
+##           [,1]      [,2]
+## [1,] 1.3333333 0.6666667
+## [2,] 0.6666667 1.3333333
+## > cacheSolve(resultMatrix)
+##           [,1]      [,2]
+## [1,] 1.3333333 0.6666667
+## [2,] 0.6666667 1.3333333
+## > cacheSolve(resultMatrix)
+## Getting cached data...
+##           [,1]      [,2]
+## [1,] 1.3333333 0.6666667
+## [2,] 0.6666667 1.3333333
